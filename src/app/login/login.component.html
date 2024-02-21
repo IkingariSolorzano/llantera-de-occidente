@@ -2,6 +2,13 @@
   <!-- bootstrap login form-->
   <div class="m-auto col-11 col-sm-8 col-md-6 col-lg-4 mi-card">
     <!-- Angular FormContro -->
+@if(errorMessage!=''){
+    <div class="alert alert-danger p-1 ps-2" role="alert" style="font-size: 12px;">
+      {{ errorMessage! }}
+    </div>
+}
+
+
     <form [formGroup]="loginForm" (ngSubmit)="login()">
       <div class="form-group">
         <div class="mb-3">

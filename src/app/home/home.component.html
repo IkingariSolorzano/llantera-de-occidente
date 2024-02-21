@@ -1,1 +1,69 @@
-<p>home works!</p>
+<app-header></app-header>
+
+<div class="container mt-5 overflow-auto">
+  <table
+    class="table table-responsive table-bordered table-hover text-nowrap"
+    style="font-size: 12px"
+  >
+    <thead>
+      <tr>
+        <th>clave</th>
+        <th>DESCRIPCION</th>
+        <th>M1</th>
+        <th>M3</th>
+        <th>TOTAL</th>
+        <th>MAYOREO</th>
+        <th>EMPRESA</th>
+        <th>P_LISTA</th>
+        <th>LIQUIDACION</th>
+        <th>VIGENTE</th>
+        <th>C1</th>
+        <th>C2</th>
+        <th>C3</th>
+        <th>C4</th>
+        <th>C5</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (llanta of llantas; track $index) {
+      <tr>
+        <td>{{ llanta.clave }}</td>
+        <td>{{ llanta.DESCRIPCION }}</td>
+        <td>{{ llanta.M1 }}</td>
+        <td>{{ llanta.M3 }}</td>
+        <td>{{ llanta.TOTAL }}</td>
+        <td>{{ llanta.MAYOREO }}</td>
+        <td>{{ llanta.EMPRESA }}</td>
+        <td>{{ llanta.P_LISTA }}</td>
+        <td>{{ llanta.LIQUIDACION }}</td>
+        <td>{{ llanta.VIGENTE }}</td>
+        <td>{{ llanta.C1 }}</td>
+        <td>{{ llanta.C2 }}</td>
+        <td>{{ llanta.C3 }}</td>
+        <td>{{ llanta.C4 }}</td>
+        <td>{{ llanta.C5 }}</td>
+      </tr>
+      }
+    </tbody>
+  </table>
+
+</div>
+<div class="row">
+  <div class="col-6 m-auto d-flex justify-content-between">
+    <button class="btn btn-primary btn-sm mx-2" (click)="prevPage()" [disabled]="isFirstPage">
+      Anterior
+    </button>
+    <span class="text-muted">
+      Página {{ page }} de {{ totalPages }}
+    </span>
+    <button class="btn btn-primary btn-sm mx-2" (click)="nextPage()" [disabled]="isLastPage">
+      Siguiente
+    </button>
+    <!-- lastPage -->
+    <div>
+      <button class="btn btn-primary btn-sm mx-2" (click)="lastPage()">
+        Última
+      </button>
+    </div>
+  </div>
+</div>
