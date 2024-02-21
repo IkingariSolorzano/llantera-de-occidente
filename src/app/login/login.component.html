@@ -1,0 +1,75 @@
+<div class="container-fluid d-flex align-content-center vh-100">
+  <!-- bootstrap login form-->
+  <div class="m-auto col-11 col-sm-8 col-md-6 col-lg-4 mi-card">
+    <!-- Angular FormContro -->
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
+      <div class="form-group">
+        <div class="mb-3">
+          <label for="client" class="form-label fw-bolder">Usuario</label>
+          <input
+            type="text"
+            formControlName="username"
+            name="client"
+            id="client"
+            class="form-control form-control-sm"
+            placeholder="Número de cliente"
+            [ngClass]="{
+              'is-invalid':
+                loginForm.controls['username'].errors &&
+                (loginForm.controls['username'].touched ||
+                  loginForm.controls['username'].dirty),
+              'is-valid':
+                loginForm.controls['username'].valid &&
+                (loginForm.controls['username'].touched ||
+                  loginForm.controls['username'].dirty)
+            }"
+          />
+          @if (loginForm.get('username')?.invalid &&
+          (loginForm.get('username')?.touched ||
+          loginForm.get('username')?.dirty)){
+          <div class="invalid-feedback fw-bolder">
+            Por favor ingrese un número de cliente válido
+          </div>
+          }
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label fw-bolder">
+            Contraseña
+          </label>
+          <input
+            type="password"
+            name="password"
+            formControlName="password"
+            id="password"
+            class="form-control form-control-sm"
+            placeholder="Contraseña"
+            [ngClass]="{
+              'is-invalid':
+                loginForm.controls['password'].errors &&
+                (loginForm.controls['password'].touched ||
+                  loginForm.controls['password'].dirty),
+              'is-valid':
+                loginForm.controls['password'].valid &&
+                (loginForm.controls['password'].touched ||
+                  loginForm.controls['password'].dirty)
+            }"
+          />
+          @if (loginForm.get('password')?.invalid &&
+          (loginForm.get('password')?.touched ||
+          loginForm.get('password')?.dirty)){
+          <div class="invalid-feedback fw-bolder">
+            Por favor ingrese una contraseña válida
+          </div>
+          }
+        </div>
+        <button
+          type="submit"
+          class="btn btn-sm btn-primary"
+          [disabled]="!formValid"
+        >
+          Iniciar Sesión
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

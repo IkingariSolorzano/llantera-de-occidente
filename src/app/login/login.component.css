@@ -1,0 +1,11 @@
+.container-fluid {
+  background: url('../../assets/images/wallpaper.jpg');
+  background-size: cover;
+}
+
+.mi-card {
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 12px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.8);
+}
