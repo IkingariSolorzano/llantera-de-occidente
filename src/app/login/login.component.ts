@@ -23,7 +23,6 @@ export class LoginComponent {
   formValid: boolean = false;
   errorMessage: string = '';
 
-
   constructor(
     private formBuilder: FormBuilder,
     private loginService: LoginService,
@@ -41,13 +40,12 @@ export class LoginComponent {
         Validators.maxLength(20),
       ]),
     });
-
     this.loginForm.valueChanges.subscribe((value) => {
       this.formValid = this.loginForm.valid;
     });
   }
 
-  ngOnInit(){
+  ngOnInit() {
     if (this.loginService.isLogged()) {
       this.router.navigate(['home']);
     }
@@ -60,10 +58,8 @@ export class LoginComponent {
   login() {
     this.loginService.login(this.loginForm.value).subscribe((response) => {
       if (response) {
-        console.log('Login successful');
         this.router.navigate(['home']);
       }
-      console.log('Login failed');
       setTimeout(() => {
         this.errorMessage = '';
       }, 2500);

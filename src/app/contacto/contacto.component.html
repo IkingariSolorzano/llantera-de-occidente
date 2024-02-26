@@ -1,0 +1,141 @@
+<div class="container mt-5 p-5">
+  <div class="row">
+    <!-- Columna de Datos de la Empresa -->
+    <div class="col-md-6 datos ">
+      <div class="info row text-center">
+        <h2 class="mb-3">Llantera de Occidente</h2>
+        <div class="col-5 fw-bold  text-end ">
+          <p>Nombre:</p>
+          <p>Dirección:</p>
+          <p>Teléfono:</p>
+        </div>
+        <div class="col-7 text-start ">
+          <p>Mi Empresa S.A.</p>
+          <p>alle Principal 123</p>
+          <p>1 234 567 890</p>
+        </div>
+      </div>
+    </div>
+    <!-- Columna del Formulario de Contacto -->
+    <div class="col-md-6">
+      <h2>Formulario de Contacto</h2>
+      <form action="enviar.php" method="post">
+        <div class="mb-3">
+          <label for="nombre" class="form-label">Nombre</label>
+          <input
+            type="text"
+            class="form-control"
+            id="nombre"
+            name="nombre"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Correo Electrónico</label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            name="email"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="mensaje" class="form-label">Mensaje</label>
+          <textarea
+            class="form-control"
+            id="mensaje"
+            name="mensaje"
+            rows="4"
+            required
+          ></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Enviar</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="shadow d-flex my-5" style="height: 50vh">
+    <div class="col-12 col-md-6 bg-danger h-100">
+      <div class="row my-2 p-2 text-center fw-bolder text-white">
+        <h1>Contáctanos</h1>
+      </div>
+      <div class="row">
+        <div class="col-4">
+          <div class="container text-end text-white fw-semibold">
+            <ul class="list-unstyled">
+              <li class="">Domicilio</li>
+              <li class="">Teléfono</li>
+              <li class="">Correo</li>
+              <li class="">Facebook</li>
+              <li class="">Instagram</li>
+              <li class="">Horarios</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-8">
+          <div class="container text-start text-white text-shadow">
+            <ul class="list-unstyled">
+              <li class="">Av. Periodismo #1800</li>
+              <li class="">(33) 1234 5678</li>
+              <li class="">
+                contacto
+                <a href="mailto: llanteradeoccidente@gmail.com">
+                  {{ "@llanteradeoccidente.com" }}
+                </a>
+              </li>
+              <li class="link-body-emphasis">
+                <a href="https://www.facebook.com/llanteradeoccidente"
+                  >Llantera de Occidente</a
+                >
+              </li>
+              <li class="">
+                <a href="https://www.instagram.com/llanteradeoccidente">{{
+                  "@llanteradeoccidente"
+                }}</a>
+              </li>
+              <li class="">Lunes a Viernes 9:00 - 18:00</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-6 bg-primary-subtle h-100">
+      <!-- contact form -->
+      <div class="container">
+        <form action="">
+          <div class="form-floating mb-3">
+            <input
+              type="text"
+              class="form-control form-control-sm"
+              name="formId1"
+              id="formId1"
+              placeholder=""
+            />
+            <label for="formId1">Name</label>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--  <div class="col-4">
+          <div class="container text-end text-white fw-semibold">
+            <ul class="list-group list-group-flush">
+              <li class="">Domicilio</li>
+              <li class="">Teléfono</li>
+              <li class="">Correo</li>
+              <li class="">Facebook</li>
+              <li class="">Instagram</li>
+              <li class="">Horarios</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-8">
+          <div class="container text-start text-white fw-semibold">
+
+          </div>
+        </div> -->

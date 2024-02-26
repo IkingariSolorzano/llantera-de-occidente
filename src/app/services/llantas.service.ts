@@ -8,13 +8,12 @@ import { map } from 'rxjs';
 export class LlantasService {
   constructor(private http: HttpClient) {}
 
-  getLlantas(page: number, size: number) {
+  getInventory(page: number, size: number) {
     // return pagintion of inventario llantas
     return this.http
       .get('../../assets/inventario.json')
       .pipe(
         map((data: any) => {
-          console.log(data);
           return data.data.slice((page - 1) * size, page * size);
         })
       );

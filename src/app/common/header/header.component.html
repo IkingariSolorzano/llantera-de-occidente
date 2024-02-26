@@ -1,10 +1,8 @@
-<nav
-  class="navbar navbar-expand-lg navbar-primary-light bg-primary-light shadow"
->
+<nav class="navbar navbar-expand-lg navbar-primary-light shadow fixed-top">
   <div class="container-fluid">
     <a class="navbar-brand" routerLink="/">
       <img
-        src="../../../assets/images/Logo_Llantera de Occidente.png"
+        src=""
         alt=""
         style="height: 40px"
       />
@@ -22,17 +20,26 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarText">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+       @if(rol =='4a0d01dd-4d82-453f-a9b8-38503ff5b311'){
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" routerLink="/">Home</a>
+          <a class="nav-link active" aria-current="page" routerLink=""
+            >Inicio</a
+          >
+        </li>
+       }
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/cotizar">Cotizar</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/">Features</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/">Pricing</a>
+          <a class="nav-link" routerLink="/contacto">Contáctanos</a>
         </li>
       </ul>
-      <button class="btn btn-outline-primary btn-sm btn-toolbar " (click)="logOut()">Cerrar Sesión</button>
+      <button
+        class="btn btn-outline-primary btn-sm btn-toolbar"
+        (click)="logOut()"
+      >
+        Cerrar Sesión
+      </button>
     </div>
   </div>
 </nav>

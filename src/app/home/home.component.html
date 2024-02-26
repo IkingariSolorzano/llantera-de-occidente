@@ -1,69 +1,95 @@
-<app-header></app-header>
+<div class="d-flex p-5 ">
 
-<div class="container mt-5 overflow-auto">
-  <table
-    class="table table-responsive table-bordered table-hover text-nowrap"
-    style="font-size: 12px"
-  >
-    <thead>
-      <tr>
-        <th>clave</th>
-        <th>DESCRIPCION</th>
-        <th>M1</th>
-        <th>M3</th>
-        <th>TOTAL</th>
-        <th>MAYOREO</th>
-        <th>EMPRESA</th>
-        <th>P_LISTA</th>
-        <th>LIQUIDACION</th>
-        <th>VIGENTE</th>
-        <th>C1</th>
-        <th>C2</th>
-        <th>C3</th>
-        <th>C4</th>
-        <th>C5</th>
-      </tr>
-    </thead>
-    <tbody>
-      @for (llanta of llantas; track $index) {
-      <tr>
-        <td>{{ llanta.clave }}</td>
-        <td>{{ llanta.DESCRIPCION }}</td>
-        <td>{{ llanta.M1 }}</td>
-        <td>{{ llanta.M3 }}</td>
-        <td>{{ llanta.TOTAL }}</td>
-        <td>{{ llanta.MAYOREO }}</td>
-        <td>{{ llanta.EMPRESA }}</td>
-        <td>{{ llanta.P_LISTA }}</td>
-        <td>{{ llanta.LIQUIDACION }}</td>
-        <td>{{ llanta.VIGENTE }}</td>
-        <td>{{ llanta.C1 }}</td>
-        <td>{{ llanta.C2 }}</td>
-        <td>{{ llanta.C3 }}</td>
-        <td>{{ llanta.C4 }}</td>
-        <td>{{ llanta.C5 }}</td>
-      </tr>
-      }
-    </tbody>
-  </table>
-
-</div>
-<div class="row">
-  <div class="col-6 m-auto d-flex justify-content-between">
-    <button class="btn btn-primary btn-sm mx-2" (click)="prevPage()" [disabled]="isFirstPage">
-      Anterior
-    </button>
-    <span class="text-muted">
-      Página {{ page }} de {{ totalPages }}
-    </span>
-    <button class="btn btn-primary btn-sm mx-2" (click)="nextPage()" [disabled]="isLastPage">
-      Siguiente
-    </button>
-    <!-- lastPage -->
-    <div>
-      <button class="btn btn-primary btn-sm mx-2" (click)="lastPage()">
-        Última
-      </button>
+  <div class="row p-5">
+    <div class="container overflow-auto">
+      <table
+        class="table table-responsive table-sm table-bordered table-hover text-nowrap"
+        style="font-size: 12px"
+      >
+        <thead>
+          <tr>
+            <th>Clave</th>
+            <th>Descripción</th>
+            <th>Total</th>
+            <th>Mayoreo</th>
+            <th>Empresa</th>
+            <th>P. Lista</th>
+            <th>Liquidación</th>
+            <th>Vigente</th>
+            <th>C1</th>
+            <th>Marca</th>
+            <th>Vehículo</th>
+            <th>C4</th>
+            <th>Carga</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (llanta of llantas; track $index) {
+          <tr>
+            <td>{{ llanta.clave }}</td>
+            <td>{{ llanta.descripcion }}</td>
+            <td>{{ llanta.total }}</td>
+            <td>{{ llanta.mayoreo }}</td>
+            <td>{{ llanta.empresa }}</td>
+            <td>{{ llanta.p_lista }}</td>
+            <td>{{ llanta.liquidacion }}</td>
+            <td>{{ llanta.vigente }}</td>
+            <td>{{ llanta.c1 }}</td>
+            <td>{{ llanta.marca }}</td>
+            <td>{{ llanta.vehiculo }}</td>
+            <td>{{ llanta.c4 }}</td>
+            <td>{{ llanta.carga }}</td>
+          </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-10 col-sm-8 col-lg-6 m-auto d-flex justify-content-evenly">
+          <button
+            class="btn btn-sm btn-light fw-bold shadow rounded-circle"
+            (click)="firstPage()"
+            [ngClass]="{ 'text-secondary': isFirstPage }"
+            [disabled]="isFirstPage"
+          >
+            <i class="bi bi-chevron-double-left"></i>
+          </button>
+          <button
+            class="btn btn-sm btn-light fw-bold shadow rounded-circle"
+            (click)="prevPage()"
+            [ngClass]="{ 'text-secondary': isFirstPage }"
+            [disabled]="isFirstPage"
+          >
+            <i class="bi bi-chevron-left"></i>
+          </button>
+          <span class="text-muted fw-bolder">
+            Página {{ page }} de {{ totalPages }}
+          </span>
+          <button
+            class="btn btn-sm btn-light fw-bold shadow rounded-circle"
+            (click)="nextPage()"
+            [ngClass]="{ 'text-secondary': isLastPage }"
+            [disabled]="isLastPage"
+          >
+            <i class="bi bi-chevron-right"></i>
+          </button>
+          <button
+            class="btn btn-sm btn-light fw-bold shadow rounded-circle"
+            (click)="lastPage()"
+            [ngClass]="{ 'text-secondary': isLastPage }"
+            [disabled]="isLastPage"
+          >
+            <i class="bi bi-chevron-double-right"></i>
+          </button>
+          <select name="segmentSize" class="form-select-sm col-2" id="segmentSize" (change)="changePagination($event)">
+            <option value="10">10</option>
+            <option value="25">25</option>
+            <option value="50">50</option>
+            <option value="100">100</option>
+          </select>
+        </div>
+      </div>
     </div>
   </div>
 </div>

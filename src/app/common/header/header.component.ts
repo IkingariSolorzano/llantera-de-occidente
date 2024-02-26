@@ -7,16 +7,20 @@ import { Router, RouterLink } from '@angular/router';
   standalone: true,
   imports: [RouterLink],
   templateUrl: './header.component.html',
-  styleUrl: './header.component.css'
+  styleUrl: './header.component.css',
 })
 export class HeaderComponent {
+  rol: string = '';
 
-  constructor(private loginService: LoginService,
-    private router: Router) {}
+  constructor(private loginService: LoginService, private router: Router) {
+    this.loginService._rol.subscribe((rol) => {
+      this.rol = rol;
+    });
+    console.log('El rol es', this.rol);
+  }
 
   logOut() {
     this.loginService.logOut();
     this.router.navigate(['login']);
   }
-
 }
