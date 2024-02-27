@@ -20,7 +20,7 @@ import { toInteger } from '@ng-bootstrap/ng-bootstrap/util/util';
     UploadInventoryComponent,
   ],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.css',
+  styleUrl: './home.component.scss',
 })
 export class HomeComponent {
   inventoryService = inject(InventoryService);

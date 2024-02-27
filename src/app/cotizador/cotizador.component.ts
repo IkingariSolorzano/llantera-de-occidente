@@ -6,7 +6,7 @@ import { HeaderComponent } from '../common/header/header.component';
   standalone: true,
   imports: [HeaderComponent],
   templateUrl: './cotizador.component.html',
-  styleUrl: './cotizador.component.css'
+  styleUrl: './cotizador.component.scss'
 })
 export class CotizadorComponent {
 

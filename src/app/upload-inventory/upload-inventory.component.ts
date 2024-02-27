@@ -14,7 +14,7 @@ import * as XLSX from 'xlsx';
   standalone: true,
   imports: [ReactiveFormsModule],
   templateUrl: './upload-inventory.component.html',
-  styleUrl: './upload-inventory.component.css',
+  styleUrl: './upload-inventory.component.scss',
 })
 export class UploadInventoryComponent {
   //Subir archivo a firebase

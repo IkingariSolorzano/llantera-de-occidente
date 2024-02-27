@@ -7,7 +7,7 @@ import { Router, RouterLink } from '@angular/router';
   standalone: true,
   imports: [RouterLink],
   templateUrl: './header.component.html',
-  styleUrl: './header.component.css',
+  styleUrl: './header.component.scss',
 })
 export class HeaderComponent {
   rol: string = '';

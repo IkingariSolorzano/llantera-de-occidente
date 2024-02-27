@@ -6,7 +6,7 @@ import { HeaderComponent } from '../common/header/header.component';
   standalone: true,
   imports: [HeaderComponent],
   templateUrl: './contacto.component.html',
-  styleUrl: './contacto.component.css'
+  styleUrl: './contacto.component.scss'
 })
 export class ContactoComponent {
 
