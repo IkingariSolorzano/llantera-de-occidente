@@ -32,13 +32,16 @@ export class InventoryService {
   }
 
   async getTotalItems() {
-    // const collectionesData = collection(this.firestore, 'inventario');
-    // const snapshot = await getCountFromServer(collectionesData);
-    // return snapshot.data().count;
+    const collectionesData = collection(this.firestore, 'inventario');
+    const snapshot = await getCountFromServer(collectionesData);
+    return snapshot.data().count;
   }
 
   getInventory(page: number, size: number) {
-    const q = query(collection(this.firestore, 'inventario'), limit(10));
+    console.log('Page', size);
+    let starter= (page-1)*size;
+    console.log('Starter', starter);
+    const q = query(collection(this.firestore, 'inventario'), orderBy('descripcion'), limit(size), startAfter(starter));
     return collectionData(q);
   }
 }

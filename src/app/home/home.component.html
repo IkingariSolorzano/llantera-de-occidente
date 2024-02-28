@@ -1,90 +1,92 @@
-  <div class="container-lg overflow-auto overflow-y-auto  mt-5" style="max-height: calc(80vh - 100px);">
-    <table class="table table-hover">
-      <thead class="sticky-top ">
-        <tr class="head-row">
-          <th class="bg-danger-subtle text-dark-emphasis px-4 py-2 text-nowrap fs-6">Clave</th>
-          <th class="bg-danger-subtle text-dark-emphasis px-4 py-2 text-nowrap fs-6">Descripción</th>
-          <th class="bg-danger-subtle text-dark-emphasis px-4 py-2 text-nowrap fs-6">Total</th>
-          <th class="bg-danger-subtle text-dark-emphasis px-4 py-2 text-nowrap fs-6">Mayoreo</th>
-          <th class="bg-danger-subtle text-dark-emphasis px-4 py-2 text-nowrap fs-6">Empresa</th>
-          <th class="bg-danger-subtle text-dark-emphasis px-4 py-2 text-nowrap fs-6">P. Lista</th>
-          <th class="bg-danger-subtle text-dark-emphasis px-4 py-2 text-nowrap fs-6">Liquidación</th>
-          <th class="bg-danger-subtle text-dark-emphasis px-4 py-2 text-nowrap fs-6">Vigente</th>
-          <th class="bg-danger-subtle text-dark-emphasis px-4 py-2 text-nowrap fs-6">C1</th>
-          <th class="bg-danger-subtle text-dark-emphasis px-4 py-2 text-nowrap fs-6">Marca</th>
-          <th class="bg-danger-subtle text-dark-emphasis px-4 py-2 text-nowrap fs-6">Vehículo</th>
-          <th class="bg-danger-subtle text-dark-emphasis px-4 py-2 text-nowrap fs-6">C4</th>
-          <th class="bg-danger-subtle text-dark-emphasis px-4 py-2 text-nowrap fs-6">Carga</th>
-        </tr>
-      </thead>
-      <tbody>
-        @for (llanta of llantas; track $index) {
-        <tr class="body-row border border-bottom border-1">
-          <td class="text-secondary fw-light text-nowrap pt-2 pb-3 px-4 texto-tabla">{{ llanta.clave }}</td>
-          <td class="text-secondary fw-light text-nowrap pt-2 pb-3 px-4 texto-tabla">{{ llanta.descripcion }}</td>
-          <td class="text-secondary fw-light text-nowrap pt-2 pb-3 px-4 texto-tabla">{{ llanta.total }}</td>
-          <td class="text-secondary fw-light text-nowrap pt-2 pb-3 px-4 texto-tabla">{{ llanta.mayoreo }}</td>
-          <td class="text-secondary fw-light text-nowrap pt-2 pb-3 px-4 texto-tabla">{{ llanta.empresa }}</td>
-          <td class="text-secondary fw-light text-nowrap pt-2 pb-3 px-4 texto-tabla">{{ llanta.p_lista }}</td>
-          <td class="text-secondary fw-light text-nowrap pt-2 pb-3 px-4 texto-tabla">{{ llanta.liquidacion }}</td>
-          <td class="text-secondary fw-light text-nowrap pt-2 pb-3 px-4 texto-tabla">{{ llanta.vigente }}</td>
-          <td class="text-secondary fw-light text-nowrap pt-2 pb-3 px-4 texto-tabla">{{ llanta.c1 }}</td>
-          <td class="text-secondary fw-light text-nowrap pt-2 pb-3 px-4 texto-tabla">{{ llanta.marca }}</td>
-          <td class="text-secondary fw-light text-nowrap pt-2 pb-3 px-4 texto-tabla">{{ llanta.vehiculo }}</td>
-          <td class="text-secondary fw-light text-nowrap pt-2 pb-3 px-4 texto-tabla">{{ llanta.c4 }}</td>
-          <td class="text-secondary fw-light text-nowrap pt-2 pb-3 px-4 texto-tabla">{{ llanta.carga }}</td>
-        </tr>
-        }
-      </tbody>
-    </table>
-  </div>
-  <div class="row py-3">
-    <div class="col-10 col-sm-8 col-lg-6 m-auto d-flex justify-content-evenly">
-      <button
-        class="btn btn-sm btn-light fw-bold shadow rounded-circle"
-        (click)="firstPage()"
-        [ngClass]="{ 'text-secondary': isFirstPage }"
-        [disabled]="isFirstPage"
-      >
-        <i class="bi bi-chevron-double-left"></i>
-      </button>
-      <button
-        class="btn btn-sm btn-light fw-bold shadow rounded-circle"
-        (click)="prevPage()"
-        [ngClass]="{ 'text-secondary': isFirstPage }"
-        [disabled]="isFirstPage"
-      >
-        <i class="bi bi-chevron-left"></i>
-      </button>
-      <span class="text-muted fw-bolder">
-        Página {{ page }} de {{ totalPages }}
-      </span>
-      <button
-        class="btn btn-sm btn-light fw-bold shadow rounded-circle"
-        (click)="nextPage()"
-        [ngClass]="{ 'text-secondary': isLastPage }"
-        [disabled]="isLastPage"
-      >
-        <i class="bi bi-chevron-right"></i>
-      </button>
-      <button
-        class="btn btn-sm btn-light fw-bold shadow rounded-circle"
-        (click)="lastPage()"
-        [ngClass]="{ 'text-secondary': isLastPage }"
-        [disabled]="isLastPage"
-      >
-        <i class="bi bi-chevron-double-right"></i>
-      </button>
-      <select
-        name="segmentSize"
-        class="form-select-sm col-2"
-        id="segmentSize"
-        (change)="changePagination($event)"
-      >
-        <option value="10">10</option>
-        <option value="25">25</option>
-        <option value="50">50</option>
-        <option value="100">100</option>
-      </select>
+  <div class="container">
+    <div class="container overflow-auto overflow-y-auto  mt-5" style="max-height: calc(86vh - 100px);">
+      <table class="table table-hover">
+        <thead class="sticky-top shadow">
+          <tr class="head-row">
+            <th class="bg-danger-subtle text-dark-emphasis px-4 py-2 text-nowrap fs-6">Clave</th>
+            <th class="bg-danger-subtle text-dark-emphasis px-4 py-2 text-nowrap fs-6">Descripción</th>
+            <th class="bg-danger-subtle text-dark-emphasis px-4 py-2 text-nowrap fs-6">Total</th>
+            <th class="bg-danger-subtle text-dark-emphasis px-4 py-2 text-nowrap fs-6">Mayoreo</th>
+            <th class="bg-danger-subtle text-dark-emphasis px-4 py-2 text-nowrap fs-6">Empresa</th>
+            <th class="bg-danger-subtle text-dark-emphasis px-4 py-2 text-nowrap fs-6">P. Lista</th>
+            <th class="bg-danger-subtle text-dark-emphasis px-4 py-2 text-nowrap fs-6">Liquidación</th>
+            <th class="bg-danger-subtle text-dark-emphasis px-4 py-2 text-nowrap fs-6">Vigente</th>
+            <th class="bg-danger-subtle text-dark-emphasis px-4 py-2 text-nowrap fs-6">C1</th>
+            <th class="bg-danger-subtle text-dark-emphasis px-4 py-2 text-nowrap fs-6">Marca</th>
+            <th class="bg-danger-subtle text-dark-emphasis px-4 py-2 text-nowrap fs-6">Vehículo</th>
+            <th class="bg-danger-subtle text-dark-emphasis px-4 py-2 text-nowrap fs-6">C4</th>
+            <th class="bg-danger-subtle text-dark-emphasis px-4 py-2 text-nowrap fs-6">Carga</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (llanta of llantas; track $index) {
+          <tr class="body-row border border-bottom border-1">
+            <td class="text-secondary fw-light text-nowrap pt-2 pb-3 px-4 texto-tabla">{{ llanta.clave }}</td>
+            <td class="text-secondary fw-light text-nowrap pt-2 pb-3 px-4 texto-tabla">{{ llanta.descripcion }}</td>
+            <td class="text-secondary fw-light text-nowrap pt-2 pb-3 px-4 texto-tabla">{{ llanta.total }}</td>
+            <td class="text-secondary fw-light text-nowrap pt-2 pb-3 px-4 texto-tabla">{{ llanta.mayoreo }}</td>
+            <td class="text-secondary fw-light text-nowrap pt-2 pb-3 px-4 texto-tabla">{{ llanta.empresa }}</td>
+            <td class="text-secondary fw-light text-nowrap pt-2 pb-3 px-4 texto-tabla">{{ llanta.p_lista }}</td>
+            <td class="text-secondary fw-light text-nowrap pt-2 pb-3 px-4 texto-tabla">{{ llanta.liquidacion }}</td>
+            <td class="text-secondary fw-light text-nowrap pt-2 pb-3 px-4 texto-tabla">{{ llanta.vigente }}</td>
+            <td class="text-secondary fw-light text-nowrap pt-2 pb-3 px-4 texto-tabla">{{ llanta.c1 }}</td>
+            <td class="text-secondary fw-light text-nowrap pt-2 pb-3 px-4 texto-tabla">{{ llanta.marca }}</td>
+            <td class="text-secondary fw-light text-nowrap pt-2 pb-3 px-4 texto-tabla">{{ llanta.vehiculo }}</td>
+            <td class="text-secondary fw-light text-nowrap pt-2 pb-3 px-4 texto-tabla">{{ llanta.c4 }}</td>
+            <td class="text-secondary fw-light text-nowrap pt-2 pb-3 px-4 texto-tabla">{{ llanta.carga }}</td>
+          </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+      <div class="row py-3  ">
+        <div class="col-10 col-sm-8 col-lg-6 m-auto d-flex justify-content-evenly  ">
+          <button
+          class="btn btn-sm btn-light fw-bold shadow rounded-circle"
+          (click)="firstPage()"
+          [ngClass]="{ 'text-secondary': isFirstPage }"
+          [disabled]="isFirstPage"
+        >
+          <i class="bi bi-chevron-double-left"></i>
+        </button>
+        <button
+          class="btn btn-sm btn-light fw-bold shadow rounded-circle"
+          (click)="prevPage()"
+          [ngClass]="{ 'text-secondary': isFirstPage }"
+          [disabled]="isFirstPage"
+        >
+          <i class="bi bi-chevron-left"></i>
+        </button>
+        <span class="text-muted fw-bolder">
+          Página {{ page }} de {{ totalPages }}
+        </span>
+        <button
+          class="btn btn-sm btn-light fw-bold shadow rounded-circle"
+          (click)="nextPage()"
+          [ngClass]="{ 'text-secondary': isLastPage }"
+          [disabled]="isLastPage"
+        >
+          <i class="bi bi-chevron-right"></i>
+        </button>
+        <button
+          class="btn btn-sm btn-light fw-bold shadow rounded-circle"
+          (click)="lastPage()"
+          [ngClass]="{ 'text-secondary': isLastPage }"
+          [disabled]="isLastPage"
+        >
+          <i class="bi bi-chevron-double-right"></i>
+        </button>
+        <select
+          name="segmentSize"
+          class="form-select-sm col-2"
+          id="segmentSize"
+          (change)="changePagination($event)"
+        >
+          <option value="10">10</option>
+          <option value="25">25</option>
+          <option value="50">50</option>
+          <option value="100">100</option>
+        </select>
+      </div>
     </div>
   </div>

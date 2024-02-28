@@ -33,38 +33,38 @@ export class HomeComponent {
   isLastPage: boolean = false;
 
   constructor() {
-    /*  this.inventoryService
-      .getTotalItems()
-      .then((data: any) => {
-        this.totalPages = Math.ceil(data / this.segmentSize);
-      })
-      .then(() => {
-        this.inventoryService
-          .getInventory(this.page, this.segmentSize)
-          .subscribe((data: any) => {
-            this.llantas = data;
-          });
-      }); */
+    this.calculatePages();
+    this.getdata();
 
-   /*  this.llantasService.getTotalItems().subscribe((data: any) => {
+    /*  this.llantasService.getTotalItems().subscribe((data: any) => {
       this.totalPages = Math.ceil(data / this.segmentSize);
     }); */
+    /*  this.llantasService
+      .getInventory(this.page, this.segmentSize)
+      .subscribe((data: any) => {
+        this.llantas = data;
+      }); */
+  }
+
+  getdata() {
     this.llantasService
       .getInventory(this.page, this.segmentSize)
       .subscribe((data: any) => {
         this.llantas = data;
       });
   }
+  calculatePages() {
+    this.inventoryService.getTotalItems().then((data: any) => {
+      this.totalPages = Math.ceil(data / this.segmentSize);
+      console.log(this.totalPages);
+    });
+  }
 
   prevPage() {
     if (this.page > 1) {
       this.page--;
       this.isLastPage = false;
-      this.llantasService
-        .getInventory(this.page, this.segmentSize)
-        .subscribe((data: any) => {
-          this.llantas = data;
-        });
+      this.getdata();
     }
   }
 
@@ -72,11 +72,7 @@ export class HomeComponent {
     if (this.page < this.totalPages) {
       this.page++;
       this.isFirstPage = false;
-      this.llantasService
-        .getInventory(this.page, this.segmentSize)
-        .subscribe((data: any) => {
-          this.llantas = data;
-        });
+      this.getdata();
     }
   }
 
@@ -84,35 +80,23 @@ export class HomeComponent {
     this.page = this.totalPages;
     this.isLastPage = true;
     this.isFirstPage = false;
-    this.llantasService
-      .getInventory(this.page, this.segmentSize)
-      /* .subscribe((data: any) => {
-        this.llantas = data;
-      }); */
+    this.getdata();
   }
 
   firstPage() {
     this.page = 1;
     this.isFirstPage = true;
     this.isLastPage = false;
-    this.llantasService
-      .getInventory(this.page, this.segmentSize)
-     /*  .subscribe((data: any) => {
-        this.llantas = data;
-      }); */
+    this.getdata();
   }
 
-  changePagination(event: Event){
+  changePagination(event: Event) {
     let size = (event.target as HTMLSelectElement).value;
     console.log(size);
-    //cast size from string to  number
     this.segmentSize = parseInt(size);
-    this.llantasService
-      .getInventory(this.page, this.segmentSize)
-      .subscribe((data: any) => {
-        this.llantas = data;
-      });
-
-    // this.segmentSize = toInteger(size);
+    console.log(this.segmentSize);
+    this.firstPage();
+    this.calculatePages();
+    this.getdata();
   }
 }

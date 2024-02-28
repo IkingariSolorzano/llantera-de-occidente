@@ -14,6 +14,11 @@ export class LlantasService {
       .get('../../assets/inventario.json')
       .pipe(
         map((data: any) => {
+          data.data.sort((a: any, b: any) => {
+            const order = a.clave.localeCompare(b.clave);
+            return order;
+          }
+          );
           return data.data.slice((page - 1) * size, page * size);
         })
       );
